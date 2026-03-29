@@ -1,0 +1,61 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Card styling */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+h3 {
+    color: #4facfe;
+    margin-bottom: 10px;
+}
+
+/* Weak topics highlighting */
+.weak {
+    color: red;
+    font-weight: bold;
+}
+
+/* Highlight current student ranking */
+.highlight {
+    color: green;
+    font-weight: bold;
+}
+
+/* Topic list styling */
+#topics div {
+    margin: 5px 0;
+}
+
+/* Ranking list styling */
+#ranking div {
+    margin: 3px 0;
+}

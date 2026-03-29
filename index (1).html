@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DAA Virtual Lab</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <style>
+        /* Container & section spacing */
+        .container { width: 90%; margin: 20px auto; }
+        h2 { text-align: center; margin-bottom: 20px; }
+        section { margin-bottom: 40px; }
+        .card { border:1px solid #ccc; border-radius:8px; padding:15px; background:#f5f5f5; margin:10px 0; }
+        .flex-row { display:flex; gap:15px; flex-wrap:wrap; }
+        .topic-card { border:1px solid #ccc; padding:10px; border-radius:5px; width:150px; text-align:center; }
+        table { width:100%; border-collapse: collapse; }
+        th, td { padding:10px; border:1px solid #ccc; text-align:left; }
+        th { background:#4facfe; color:white; }
+        tr:nth-child(even) { background:#f5f5f5; }
+        .passed { color:green; font-weight:bold; }
+        .failed { color:red; font-weight:bold; }
+        #editor { width:100%; height:200px; font-family:monospace; font-size:14px; padding:10px; border-radius:5px; border:1px solid #ccc; }
+        #output { width:100%; height:100px; padding:10px; border-radius:5px; border:1px solid #ccc; background:#eef; white-space:pre-wrap; margin-top:10px; }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav style="display:flex; align-items:center; justify-content:space-between; background:#4facfe; padding:10px; color:white;">
+    <div style="display:flex; align-items:center; gap:10px;">
+        <img src="images/logo.png" alt="DAA Virtual Lab" height="40">
+        <span style="font-weight:bold; font-size:18px;">DAA Virtual Lab</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:15px;">
+        <img src="images/home.svg" alt="Dashboard" height="25" title="Dashboard">
+        <img src="images/assignment.svg" alt="Assignments" height="25" title="Assignments">
+        <img src="images/editor.svg" alt="Editor" height="25" title="Editor">
+        <img src="images/history.svg" alt="History" height="25" title="History">
+        <img src="images/analytics.svg" alt="Analytics" height="25" title="Analytics">
+        <img src="images/avatar.png" alt="Profile" height="35" style="border-radius:50%;">
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- Dashboard Section -->
+    <section id="dashboardSection">
+        <h2>Dashboard</h2>
+
+        <div class="card" id="performance">Average Score: Loading...</div>
+
+        <div class="card">
+            <h3>Topic-wise Scores</h3>
+            <div id="topics" class="flex-row">
+                <div class="topic-card">Loading...</div>
+            </div>
+        </div>
+
+        <div class="card" id="consistency">Consistency: Loading...</div>
+
+        <div class="card">
+            <h3>Ranking</h3>
+            <div id="ranking">Loading...</div>
+        </div>
+    </section>
+
+    <!-- Submission History Section -->
+    <section id="historySection">
+        <h2>Submission History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Assignment</th>
+                    <th>Status</th>
+                    <th>Score</th>
+                    <th>Submitted At</th>
+                </tr>
+            </thead>
+            <tbody id="historyList">
+                <tr><td colspan="4">Loading...</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Code Editor Section -->
+    <section id="editorSection">
+        <h2>Code Editor</h2>
+        <textarea id="editor" placeholder="Write your code here..."></textarea><br>
+        <button onclick="runCode()">
+            <img src="images/run.svg" alt="Run" height="20"> Run Code
+        </button>
+        <button onclick="submitCode()">
+            <img src="images/submit.svg" alt="Submit" height="20"> Submit
+        </button>
+        <h3>Output:</h3>
+        <div id="output">...</div>
+    </section>
+
+</div>
+
+<script src="api.js"></script>
+<script src="dashboard.js"></script>
+<script src="history.js"></script>
+<script src="editor.js"></script>
+
+<script>
+    // Optional: Submit code button handler
+    async function submitCode() {
+        await runCode(); // Runs and saves via editor.js
+        alert("Submission saved!");
+    }
+</script>
+
+</body>
+</html>
